@@ -153,7 +153,7 @@ def telescope(args):
 
 			TE_id = attributes['transcript_id']
 			TE_name = attributes['gene_id']
-			family_id = TE_id.split('_')[0]
+			family_id = TE_id.rsplit('_', 3)[0]
 
 			if TE_id in TE_dict:
 				if family_id not in family_dict:
