@@ -187,7 +187,7 @@ def TEEN(args):
 	transcript_quant.to_csv(transcript_quant_out, sep='\t', index=0)
 
 	exon_quant = pd.merge(TE_exon, quant, on='transcript_id')
-	exon_quant['count'] = exon_quant['exon_length']*exon_quant['count']/exon_quant['eff_length']
+	exon_quant['count'] = exon_quant['exon_length']*exon_quant['count']/exon_quant['length']
 	exon_count = exon_quant.groupby('exon_class')['count'].apply(sum).reset_index()
 	exon_count['count'] = round(exon_count['count'],2)
 	exon_TPM = exon_quant.groupby('exon_class')['TPM'].apply(sum).reset_index()
