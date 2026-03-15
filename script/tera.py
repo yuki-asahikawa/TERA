@@ -144,6 +144,9 @@ def SERVE(args):
 		+' -g '+args.GMAP_index_name \
 		+' -t '+str(args.nthread) \
 		+' -m '+args.nRAMassem \
+		+' --max_intron '+str(args.max_intron) \
+		+' --min_identity '+str(args.min_identity) \
+		+' --min_coverage '+str(args.min_coverage) \
 		+' --count 1'
 	if args.stranded_type:
 		cmd += ' -s '+args.stranded_type
