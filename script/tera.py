@@ -295,7 +295,7 @@ def detect(args):
 		TEAM(args)
 
 		cmd = 'rm -rf Telescope_filt_TE_10K.bed '+align_dir+' '+assem_dir+' '+qc_dir
-		subprocess.check_call(cmd, shell=True, executable='/bin/bash')
+		# subprocess.check_call(cmd, shell=True, executable='/bin/bash')
 
 		print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Finish.', flush=True)
 
