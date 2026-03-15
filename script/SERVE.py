@@ -39,7 +39,9 @@ def STAR(args):
 		+' --outSAMtype BAM SortedByCoordinate' \
         	+' --outSAMattributes NH HI AS nM NM' \
 		+' --twopassMode Basic' \
-		+' --outSAMstrandField intronMotif'
+		+' --outSAMstrandField intronMotif' \
+    	+' --outFilterMultimapNmax 100' \
+		+' --winAnchorMultimapNmax 100'
 		
     if args.nthreadsort:
         cmd += ' --outBAMsortingThreadN '+str(args.nthreadsort)

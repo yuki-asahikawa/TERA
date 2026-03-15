@@ -56,7 +56,9 @@ def STAR(args):
 		+' --outSAMtype BAM SortedByCoordinate' \
         	+' --outSAMattributes NH HI AS nM NM' \
 		+' --twopassMode Basic' \
-		+' --outSAMstrandField intronMotif'
+		+' --outSAMstrandField intronMotif' \
+    	+' --outFilterMultimapNmax 100' \
+		+' --winAnchorMultimapNmax 100'
 
 	if fastq1.endswith('.gz'):
 		cmd += ' --readFilesCommand zcat'
