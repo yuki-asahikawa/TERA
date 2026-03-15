@@ -104,6 +104,7 @@ def Remap(args):
 		+' -f gff3_gene' \
 		+' --max-intronlength-middle='+str(args.max_intron) \
 		+' --min-identity='+str(args.min_identity) \
+      	+' --min-trimmed-coverage='+str(args.min_coverage) \
 		+' '+ERV_fasta \
 		+' > '+ERV_gff3
 
@@ -128,6 +129,7 @@ parser.add_argument('-s', '--stranded_type', default=None, help='Strand-specific
 parser.add_argument('-m', '--nRAMassem', default='10G', help='Maximum available RAM (Gb) for assembly (default: 10G)')
 parser.add_argument('--max_intron', default=10000, type=int, help='Maximum intron length of ERVs (default: 10000)')
 parser.add_argument('--min_identity', default=0.95, help='Minimum identity of ERV transcripts (default: 0.95)')
+parser.add_argument('--min_coverage', default=0.95, help='Minimum coverage of ERV transcripts (default: 0.95)')
 parser.add_argument('--count', default=5, help='Minimum ERV count (default: 5)')
 parser.add_argument('-o', '--output_dir', default='.', help='Output directory (default: .)')
 
