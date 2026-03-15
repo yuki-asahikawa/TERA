@@ -11,8 +11,8 @@ intergenic = read.table(intergenic_file, stringsAsFactors=F)
 intronic = read.table(intronic_file, stringsAsFactors=F)
 antisense = read.table(antisense_file, stringsAsFactors=F)
 
-overlap$start <- as.numeric(apply(overlap,1,function(x){max(c(x[2],x[10]))}))
-overlap$end <- as.numeric(apply(overlap,1,function(x){min(c(x[3],x[11]))}))
+overlap$start <- pmax(overlap[,2], overlap[,10])
+overlap$end <- pmin(overlap[,3], overlap[,11])
 out <- overlap[!(overlap[,12] %in% c(intergenic[,4], intronic[,4], antisense[,4])),c(1,ncol(overlap)-1,ncol(overlap),4,12,6,1:14)]
 
 out_file = paste0(sample, ".TE.overlap.pos.bed")
