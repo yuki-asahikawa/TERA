@@ -229,8 +229,11 @@ def TEEN(args):
 def detect(args):
 	print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] TERA detection start.', flush=True)
 
-	STAR_index = os.path.abspath(args.STAR_index)
-	GMAP_index = os.path.abspath(args.GMAP_index)
+	args.STAR_index = os.path.abspath(args.STAR_index)
+	args.GMAP_index = os.path.abspath(args.GMAP_index)
+
+	STAR_index = args.STAR_index
+	GMAP_index = args.GMAP_index
 
 	with cd(out_dir):
 		if not os.path.exists(STAR_index):
@@ -369,8 +372,8 @@ parser_quant.add_argument('--nRAMsort', type=int, default=10000000000, help='Max
 
 parser_quant.set_defaults(func=quant)
 if len(sys.argv) == 1:
-    parser.print_help()
-    sys.exit(0)
+	parser.print_help()
+	sys.exit(0)
 
 args = parser.parse_args()
 script_dir = os.path.abspath(os.path.dirname(__file__))
@@ -388,7 +391,7 @@ STRG_gtf = qc_dir+'/'+args.prefix+'_STRG.gtf'
 TEAM_gtf = out_dir+'/'+args.prefix+'_TEAM.gtf'
 
 if not os.path.exists(out_dir):
-    os.makedirs(out_dir)
+	os.makedirs(out_dir)
 
 
 print('['+datetime.now().strftime("%b %d %H:%M:%S")+'] Running TEA.', flush=True)
